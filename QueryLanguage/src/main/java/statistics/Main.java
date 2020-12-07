@@ -57,5 +57,15 @@ public class Main {
         for (Player player : stats.matches(mun4)) {
             System.out.println(player);
         }
+        System.out.println("----------------------------querybuilder testi-------------");
+        QueryBuilder query = new QueryBuilder();
+
+        Matcher qbm = query.playsIn("NYR")
+            .hasAtLeast(5, "goals")
+            .hasFewerThan(10, "goals").build();
+
+        for (Player player : stats.matches(qbm)) {
+            System.out.println( player );
+        }
     }
 }
