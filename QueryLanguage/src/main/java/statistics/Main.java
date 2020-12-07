@@ -67,5 +67,19 @@ public class Main {
         for (Player player : stats.matches(qbm)) {
             System.out.println( player );
         }
+        System.out.println("----------------------------querybuilder testi2-------------");
+
+        Matcher qbm2 = query.oneOf(
+                query.playsIn("PHI")
+                .hasAtLeast(10, "assists")
+                .hasFewerThan(5, "goals").build(),
+
+                query.playsIn("EDM")
+                .hasAtLeast(40, "points").build()
+                ).build();
+        for (Player player : stats.matches(qbm2)) {
+            System.out.println( player );
+        }
+        
     }
 }

@@ -28,4 +28,13 @@ public class QueryBuilder {
         this.matcher = new And(matcher, new HasAtLeast(value, category));
         return this;
     }
+
+    public QueryBuilder oneOf(Matcher... matchers) {
+        System.out.println("we got "+matchers.length + " matchers and they are:");
+        for(Matcher m : matchers){
+            System.out.println(m);
+        }
+        this.matcher = new Or(matchers);
+        return this;
+    }
 }
